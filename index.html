@@ -247,6 +247,10 @@
       }
     ];
 
+        
+    function abrirPastaRede(caminho) {
+        window.open(caminho, "_blank");
+    }
 
 
     // =========================================================
@@ -551,17 +555,19 @@
         tipo: "site",
         status: "site",
         icone: "img/vivoacess.png"
-      },{
-        id: 2,
-        categoria: "Informações",
-        subcategoria: "Materiais de apoio",
-        titulo: "Market Share",
-        descricao: "Informações de Market Share",
-        link: "file://///brtssisp010/bbb0331$/4.%20Rentabilidade/2026/11.%20Market%20Share",
-        tipo: "site",
-        status: "site",
-        icone: "img/VIVOPESSOAS.png"
-      }, {
+      },
+        {
+            id: 2,
+            categoria: "Informações",
+            subcategoria: "Materiais de apoio",
+            titulo: "Market Share",
+            descricao: "Informações de Market Share",
+            link: "file://brtssisp010/bbb0331$/4.%20Rentabilidade/2026/11.%20Market%20Share",
+            tipo: "rede",
+            status: "site",
+            icone: "img/VIVOPESSOAS.png"
+        },
+ {
         id: 2,
         categoria: "Informações",
         subcategoria: "Materiais de apoio",
@@ -712,9 +718,14 @@
 
             <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
               ${card.link
-                ? '<a class="btn ghost" style="padding:10px 12px;border-radius:12px" href="' + escapeAttr(card.link) + '" target="_blank">Acessar</a>'
-                : '<button class="btn ghost" style="padding:10px 12px;border-radius:12px" disabled>Sem link</button>'
-              }
+                ? `<button
+                        class="btn ghost"
+                        style="padding:10px 12px;border-radius:12px"
+                        onclick="abrirPastaRede('${card.link}')">
+                        Acessar
+                    </button>`
+                : `<button class="btn ghost" disabled>Sem link</button>`
+                }
             </div>
           </div>
         `;
